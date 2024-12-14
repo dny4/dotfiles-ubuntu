@@ -1,0 +1,20 @@
+#!/usr/bin/zsh
+
+lfcd(){
+  lf
+  DIR=$(cat ~/.lfdir)
+  cd $DIR
+  zle reset-prompt
+}
+zle -N lfcd
+bindkey '^k' lfcd
+
+book() {
+  file="$(find ~/Courses ~/Downloads ~/Documents ~/Projects -regextype posix-extended -regex '.*\.(epub|pdf)$' | fzf)"
+  if [[ $file ]]; then
+    xdg-open "$file" 2>/dev/null
+  fi
+  zle reset-prompt
+}
+zle -N book
+bindkey '^b' book

@@ -1,0 +1,11 @@
+#!env /usr/bin/zsh
+sum=0
+echo "$1"
+for i in "$1"/*.mkv; do
+  dur=$(echo "$(ffprobe -i "$i" -show_entries format=duration -v quiet -of csv="p=0")")
+  sum=$(($sum + $dur))
+done
+echo $sum
+m=$(($sum/60))
+h=$(($m/60))
+echo "== "$h" sad fucking hours =="

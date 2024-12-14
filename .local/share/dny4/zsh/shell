@@ -1,0 +1,5 @@
+#!/usr/bin/zsh  
+
+set -o vi;
+export VISUAL=nvim;
+export EDITOR=nvim;

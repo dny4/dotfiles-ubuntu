@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+for i in *.mkv; do
+  mkvpropedit $i --delete title
+  mkvpropedit $i --delete-attachment 1
+done

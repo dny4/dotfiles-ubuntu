@@ -1,0 +1,6 @@
+yt-dlp \
+--embed-thumbnail \
+--add-chapters \
+--add-metadata \
+--sponsorblock-remove sponsor \
+"$@"

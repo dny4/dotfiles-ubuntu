@@ -1,0 +1,11 @@
+#!/usr/bin/zsh
+
+#start tmux default session, if there is not one already
+if [ -z "$TMUX" ]
+then 
+    if [ ! $(tmux has-session -t="base" 2> /dev/null) ]
+    then
+      tmux new-session -s "base" -d 2> /dev/null
+    fi
+fi
+
