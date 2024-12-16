@@ -92,7 +92,6 @@ map Z zi
 map z<space> push :z<space>
 map <c-c> :redraw; reload
 map <tab> :toggle; down
-map <space> quicklook
 map <delete>  delete
 map <c-c> clear
 map . set hidden!

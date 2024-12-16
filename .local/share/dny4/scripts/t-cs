@@ -1,4 +1,5 @@
 #!/bin/bash
+# tmux create new session
 
 path=$(
   find -L ~/Documents ~/Projects -mindepth 1 -maxdepth 4 -type d |
@@ -11,7 +12,7 @@ if [[ $path == '>'* ]]; then
   # create new project
   path=~/Projects/$(echo $path | tr -d '>')
   name=$(basename "$path")
-  mkdir "$path"
+  mkdir -p "$path"
 elif [[ $path == '<'* ]]; then
   # create new sesion with <name, given, let user select folder form pwd
   name=$(echo "$path" | tr -d '<')
