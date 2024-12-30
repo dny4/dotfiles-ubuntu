@@ -85,7 +85,7 @@ RS="#[fg=$FG] $SEP $date_icon $date_format #[fg=$FG]"
 
 RS="#[fg=$FG] $SEP $time_icon $time_format $RS"
 
-RS="#[fg=$FG] $SEP $download_speed_icon #{download_speed} $RS"
+# RS="#[fg=$FG] $SEP $download_speed_icon #{download_speed} $RS"
 
 # RS="#[fg=$FG,bg=$G10] #{pomodoro_status} $RS"
 
