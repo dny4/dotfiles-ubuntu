@@ -15,10 +15,17 @@ vim.keymap.set("n", "<leader>T", vim.cmd.Telescope, { desc = "Telescope" })
 vim.keymap.set("n", "<leader>cts", vim.cmd.TailwindSort, { desc = "TailwindSort" })
 
 vim.keymap.set("n", "<leader>hl", function()
-  require("lualine").hide({ unhide = false })
+  require("lualine").hide({
+    place = { "statusline", "tabline", "winbar" },
+    unhide = false,
+  })
   print("Lualine hidden")
 end, { desc = "Hide lualine" })
+
 vim.keymap.set("n", "<leader>hL", function()
-  require("lualine").hide({ unhide = true })
+  require("lualine").hide({
+    place = { "statusline", "tabline", "winbar" },
+    unhide = true,
+  })
   print("Lualine hidden")
 end, { desc = "Unhide lualine" })
