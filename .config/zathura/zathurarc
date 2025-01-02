@@ -2,6 +2,7 @@ set window-title-basename "true"
 set statusbar-home-tilde "true"
 set selection-clipboard "clipboard"
 set font "FiraCode NFM 12"
+set database "sqlite"
 
 #
 # Based On Dracula color theme "https://github.com/dracula/zathura/blob/master/zathurarc"
@@ -51,5 +52,5 @@ set recolor-darkcolor           "#c9d1d9" # Foreground
 #
 # Startup options
 #
-set adjust-open width
+# set adjust-open width
 # set recolor false

@@ -11,6 +11,12 @@ alias kd='kitty --detach "$PWD"'
 alias tn='nvim ~/Documents/"$(date +%F)".md'
 alias e='nvim .'
 
+alias tls='tmux list-sessions'
+alias tks='tmux kill-session'
+alias tkS='tmux kill-server'
+
+alias psg='ps aux | grep'
+
 ################################################################################
 
 # mkself

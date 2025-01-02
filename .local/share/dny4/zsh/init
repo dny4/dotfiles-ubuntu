@@ -25,6 +25,8 @@ if command -v mise &> /dev/null; then
   eval "$(mise activate zsh)"
 fi
 
+################################################################################
+#
 source $HOME/.local/share/dny4/zsh/aliases
 source $HOME/.local/share/dny4/zsh/colors
 source $HOME/.local/share/dny4/zsh/shell
