@@ -34,8 +34,4 @@ end
 
 ColorMyPencils()
 
---require("notify").setup({
---  background_colour = "#3a3a3a",
---})
-
 require("lspconfig").protols.setup({})
