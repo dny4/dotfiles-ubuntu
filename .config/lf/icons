@@ -21,19 +21,19 @@
 
 # file types (with matching order)
 ln             # LINK
-or             # ORPHAN
+or      󰮘       # ORPHAN
 tw      t       # STICKY_OTHER_WRITABLE
 ow             # OTHER_WRITABLE
 st      t       # STICKY
 di             # DIR
-pi      p       # FIFO
-so      s       # SOCK
-bd      b       # BLK
-cd      c       # CHR
+pi      󰟥       # FIFO
+so      󰐧       # SOCK
+bd      󰯮       # BLK
+cd      󰯱       # CHR
 su      u       # SETUID
 sg      g       # SETGID
-ex             # EXEC
-fi             # FILE
+ex      󱓟       # EXEC
+fi             # FILE
 
 # file extensions (vim-devicons)
 *.styl          
@@ -44,7 +44,7 @@ fi             # FILE
 *.slim          
 *.haml          
 *.ejs           
-*.css           
+*.css           
 *.less          
 *.md            
 *.mdx           
@@ -110,6 +110,7 @@ fi             # FILE
 *.diff          
 *.db            
 *.sql           
+*.sqlite        
 *.dump          
 *.clj           
 *.cljc          
@@ -130,8 +131,8 @@ fi             # FILE
 *.fsx           
 *.fs            
 *.fsi           
-*.rs            
-*.rlib          
+*.rs            󱘗
+*.rlib          󱘗
 *.d             
 *.erl           
 *.hrl           
@@ -186,8 +187,8 @@ fi             # FILE
 *node_modules           
 *react.jsx              
 *procfile               
-*dockerfile             
-*docker-compose.yml     
+*dockerfile             
+*docker-compose.yml     
 *rakefile               
 *config.ru              
 *gemfile                
@@ -285,74 +286,80 @@ Vagrantfile             
 *.esd   
 
 # image formats (extensions from dircolors defaults)
-*.jpg   
-*.jpeg  
-*.mjpg  
-*.mjpeg 
-*.gif   
-*.bmp   
-*.pbm   
-*.pgm   
-*.ppm   
-*.tga   
-*.xbm   
-*.xpm   
-*.tif   
-*.tiff  
-*.png   
-*.svg   
-*.svgz  
-*.mng   
-*.pcx   
-*.mov   
-*.mpg   
-*.mpeg  
-*.m2v   
-*.mkv   
-*.webm  
-*.ogm   
-*.mp4   
-*.m4v   
-*.mp4v  
-*.vob   
-*.qt    
-*.nuv   
-*.wmv   
-*.asf   
-*.rm    
-*.rmvb  
-*.flc   
-*.avi   
-*.fli   
-*.flv   
-*.gl    
-*.dl    
-*.xcf   
-*.xwd   
-*.yuv   
-*.cgm   
-*.emf   
-*.ogv   
-*.ogx   
+*.jpg   
+*.jpeg  
+*.mjpg  
+*.mjpeg 
+*.gif   
+*.bmp   
+*.pbm   
+*.pgm   
+*.ppm   
+*.tga   
+*.xbm   
+*.xpm   
+*.tif   
+*.tiff  
+*.png   
+*.svg   
+*.svgz  
+*.mng   
+*.pcx   
+
+# playlist
+*.m3u   󰲹
+
+# video
+*.mov   
+*.mpg   
+*.mpeg  
+*.m2v   
+*.mkv   
+*.webm  
+*.ogm   
+*.mp4   
+*.m4v   
+*.mp4v  
+*.vob   
+*.qt    
+*.nuv   
+*.wmv   
+*.asf   
+*.rm    
+*.rmvb  
+*.flc   
+*.avi   
+*.fli   
+*.flv   
+*.gl    
+*.dl    
+*.xcf   
+*.xwd   
+*.yuv   
+*.cgm   
+*.emf   
+*.ogv   
+*.ogx   
 
 # audio formats (extensions from dircolors defaults)
-*.aac   
-*.au    
-*.flac  
-*.m4a   
-*.mid   
-*.midi  
-*.mka   
-*.mp3   
-*.mpc   
-*.ogg   
-*.ra    
-*.wav   
-*.oga   
-*.opus  
-*.spx   
-*.xspf  
+*.aac   󰝚
+*.au    󰝚
+*.flac  󰝚
+*.m4a   󰝚
+*.mid   󰝚
+*.midi  󰝚
+*.mka   󰝚
+*.mp3   󰝚
+*.mpc   󰝚
+*.ogg   󰝚
+*.ra    󰝚
+*.wav   󰝚
+*.oga   󰝚
+*.opus  󰝚
+*.spx   󰝚
+*.xspf  󰝚
 
 # other formats
-*.pdf   
+*.pdf   
 *.epub  󰭤
+*.txt   

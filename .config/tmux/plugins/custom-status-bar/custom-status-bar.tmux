@@ -19,19 +19,14 @@ tmux_set() {
 # Options
 right_arrow_icon=$(tmux_get '@tmux_power_right_arrow_icon' ' ')
 left_arrow_icon=$(tmux_get '@tmux_power_left_arrow_icon' ' ')
-upload_speed_icon=$(tmux_get '@tmux_power_upload_speed_icon' '↑')
-download_speed_icon=$(tmux_get '@tmux_power_download_speed_icon' '↓')
 #
-session_icon="$(tmux_get '@tmux_power_session_icon' '')"
+session_icon="$(tmux_get '@tmux_power_session_icon' '󰪥')"
 user_icon="$(tmux_get '@tmux_power_user_icon' '')"
 time_icon="$(tmux_get '@tmux_power_time_icon' '')"
 date_icon="$(tmux_get '@tmux_power_date_icon' '')"
-show_upload_speed="$(tmux_get @tmux_power_show_upload_speed false)"
-show_download_speed="$(tmux_get @tmux_power_show_download_speed true)"
-show_web_reachable="$(tmux_get @tmux_power_show_web_reachable false)"
 prefix_highlight_pos=$(tmux_get @tmux_power_prefix_highlight_pos R)
-time_format=$(tmux_get @tmux_power_time_format '%T')
-date_format=$(tmux_get @tmux_power_date_format '%F')
+time_format=$(tmux_get @tmux_power_time_format '%0l:%M %p')
+date_format=$(tmux_get @tmux_power_date_format '%b %d')
 
 # short for Theme-Colour
 FG=#b4befe
@@ -71,7 +66,8 @@ tmux_set @prefix_highlight_output_suffix "#[fg=$BG]#[bg=$FG]$right_arrow_icon"
 # Left side of status bar
 tmux_set status-left-length 150
 
-LS="#[fg=$BG,bg=$FG] $session_icon #S #[fg=$FG]"
+session_name=#S
+LS="#[fg=$BG,bg=$FG] $session_icon $session_name #[fg=$FG]"
 
 tmux_set status-left "$LS"
 
@@ -81,9 +77,8 @@ SEP='⏐'
 
 tmux_set status-right-length 150
 
-RS="#[fg=$FG] $SEP $date_icon $date_format #[fg=$FG]"
-
-RS="#[fg=$FG] $SEP $time_icon $time_format $RS"
+RS="$time_format #[fg=$FG]"
+RS="#[fg=$FG] 󰃰 $date_format $RS"
 
 # RS="#[fg=$FG] $SEP $download_speed_icon #{download_speed} $RS"
 
@@ -97,8 +92,8 @@ tmux_set status-right "$RS"
 tmux_set window-status-format "#[fg=$FG,bg=$BG]$right_arrow_icon#I:#W#F "
 tmux_set window-status-current-format "#[fg=$FG]$right_arrow_icon#[fg=$FC,bold]#I:#W#F#[fg=$FG]$right_arrow_icon"
 
-# Window separator
-tmux_set window-status-separator "╽"
+# Window separator  󰫣
+tmux_set window-status-separator ""
 
 # Window status alignment
 tmux_set status-justify left
