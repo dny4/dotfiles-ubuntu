@@ -6,12 +6,12 @@
 #  Customized: dny4
 #===============================================================================
 tmux_get() {
-  local value="$(tmux show -gqv "$1")"
+  local value
+  value="$(tmux show -gqv "$1")"
   [ -n "$value" ] && echo "$value" || echo "$2"
 }
 
-# $1: option
-# $2: value
+# $1: option, $2: value
 tmux_set() {
   tmux set-option -gq "$1" "$2"
 }
@@ -19,12 +19,7 @@ tmux_set() {
 # Options
 right_arrow_icon=$(tmux_get '@tmux_power_right_arrow_icon' ' ')
 left_arrow_icon=$(tmux_get '@tmux_power_left_arrow_icon' ' ')
-#
 session_icon="$(tmux_get '@tmux_power_session_icon' '󰪥')"
-user_icon="$(tmux_get '@tmux_power_user_icon' '')"
-time_icon="$(tmux_get '@tmux_power_time_icon' '')"
-date_icon="$(tmux_get '@tmux_power_date_icon' '')"
-prefix_highlight_pos=$(tmux_get @tmux_power_prefix_highlight_pos R)
 time_format=$(tmux_get @tmux_power_time_format '%0l:%M %p')
 date_format=$(tmux_get @tmux_power_date_format '%b %d')
 
@@ -41,7 +36,6 @@ G08=#474a67
 G09=#393b54
 G10=#2c2d41
 BG=#1e1e2e
-
 FC=#ff7b72
 
 # Status options
@@ -62,7 +56,6 @@ tmux_set @prefix_highlight_copy_mode_attr "fg=$BG,bg=$FG,bold"
 tmux_set @prefix_highlight_output_prefix "#[fg=$BG]#[bg=$FG]$left_arrow_icon"
 tmux_set @prefix_highlight_output_suffix "#[fg=$BG]#[bg=$FG]$right_arrow_icon"
 
-#     
 # Left side of status bar
 tmux_set status-left-length 150
 
@@ -71,19 +64,10 @@ LS="#[fg=$BG,bg=$FG] $session_icon $session_name #[fg=$FG]"
 
 tmux_set status-left "$LS"
 
-# Right side of status bar
-# ⏐ ⸽ ⸾ ╽ ⍿ ⦚
-SEP='⏐'
-
 tmux_set status-right-length 150
 
 RS="$time_format #[fg=$FG]"
 RS="#[fg=$FG] 󰃰 $date_format $RS"
-
-# RS="#[fg=$FG] $SEP $download_speed_icon #{download_speed} $RS"
-
-# RS="#[fg=$FG,bg=$G10] #{pomodoro_status} $RS"
-
 RS="#{prefix_highlight}$RS"
 
 tmux_set status-right "$RS"

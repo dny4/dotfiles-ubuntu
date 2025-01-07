@@ -2,7 +2,7 @@
 session_name=$(
   tmux list-sessions -F \{#S\} |
     tr -d "{}" |
-    fzf
+    fzf --prompt "kill session: "
 )
 
 tmux kill-session -t $session_name 2>/dev/null

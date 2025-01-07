@@ -110,11 +110,12 @@ map -x chmod -x
 map -w chmod -w
 map -r chmod -r
 
-map z1 :set nopreview; set ratios 1
-map z2 :set nopreview; set ratios 1:2
+map z1 :set ratios 1:2; set nopreview
+map z2 :set ratios 1:2; set preview
 map z3 :set ratios 1:2:3; set preview
 
 map sw set_wallpaper
+map sp :set preview!
 
 map L create-symlink
 

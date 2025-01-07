@@ -2,7 +2,7 @@
 session_name=$(
   tmux list-sessions -F \{#S\} |
     tr -d "{}" |
-    fzf
+    fzf --prompt "switch session: "
 )
 
-tmux switch-client -t $session_name 2>/dev/null
+tmux switch-client -t "$session_name" 2>/dev/null

@@ -3,7 +3,7 @@
 
 path=$(
   find -L "$PWD" ~/Projects -mindepth 1 -maxdepth 4 -type d -not -path '*/.*' |
-    fzf --print-query
+    fzf --print-query --prompt "create new tmux session: "
 )
 path=$(echo "$path" | tail -n +2)
 

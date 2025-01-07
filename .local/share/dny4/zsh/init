@@ -9,9 +9,8 @@ plugins=(
     colored-man-pages
 )
 
-source $ZSH/oh-my-zsh.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $ZSH/oh-my-zsh.sh
 
 ################################################################################
 
@@ -29,7 +28,7 @@ fi
 #
 source $HOME/.local/share/dny4/zsh/aliases
 source $HOME/.local/share/dny4/zsh/colors
-source $HOME/.local/share/dny4/zsh/shell
+source $HOME/.local/share/dny4/zsh/preferences
 source $HOME/.local/share/dny4/zsh/prompt
 source $HOME/.local/share/dny4/zsh/tmux
 source $HOME/.local/share/dny4/zsh/keybindings
