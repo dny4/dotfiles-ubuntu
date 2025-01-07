@@ -1,40 +1,19 @@
 #!/usr/bin/env bash
-#===============================================================================
-#   Author: Wenxuan
-#    Email: wenxuangm@gmail.com
-#  Created: 2018-04-05 17:37
-#  Customized: dny4
-#===============================================================================
-tmux_get() {
-  local value
-  value="$(tmux show -gqv "$1")"
-  [ -n "$value" ] && echo "$value" || echo "$2"
-}
 
 # $1: option, $2: value
 tmux_set() {
   tmux set-option -gq "$1" "$2"
 }
 
-# Options
-right_arrow_icon=$(tmux_get '@tmux_power_right_arrow_icon' ' ')
-left_arrow_icon=$(tmux_get '@tmux_power_left_arrow_icon' ' ')
-session_icon="$(tmux_get '@tmux_power_session_icon' '󰪥')"
-time_format=$(tmux_get @tmux_power_time_format '%0l:%M %p')
-date_format=$(tmux_get @tmux_power_date_format '%b %d')
+session_icon="󰪥"
+window_separator_icon=""
+time_format='%0l:%M %p'
+date_format='%b %d'
+date_icon="󰃰"
 
 # short for Theme-Colour
 FG=#b4befe
-G01=#a6afeb
-G02=#99a1d8
-G03=#8b92c5
-G04=#7d84b2
-G05=#70759f
-G06=#62678d
 G07=#55587a
-G08=#474a67
-G09=#393b54
-G10=#2c2d41
 BG=#1e1e2e
 FC=#ff7b72
 
@@ -53,31 +32,27 @@ tmux_set @prefix_highlight_bg "$FG"
 tmux_set @prefix_highlight_show_copy_mode 'on'
 tmux_set @prefix_highlight_show_sync 'on'
 tmux_set @prefix_highlight_copy_mode_attr "fg=$BG,bg=$FG,bold"
-tmux_set @prefix_highlight_output_prefix "#[fg=$BG]#[bg=$FG]$left_arrow_icon"
-tmux_set @prefix_highlight_output_suffix "#[fg=$BG]#[bg=$FG]$right_arrow_icon"
+tmux_set @prefix_highlight_output_prefix "#[fg=$BG]#[bg=$FG] "
+tmux_set @prefix_highlight_output_suffix "#[fg=$BG]#[bg=$FG] "
 
 # Left side of status bar
+LS="#[fg=$BG,bg=$FG] $session_icon #S #[fg=$FG]"
 tmux_set status-left-length 150
-
-session_name=#S
-LS="#[fg=$BG,bg=$FG] $session_icon $session_name #[fg=$FG]"
-
 tmux_set status-left "$LS"
 
-tmux_set status-right-length 150
-
+# Right side of status bar
 RS="$time_format #[fg=$FG]"
-RS="#[fg=$FG] 󰃰 $date_format $RS"
+RS="#[fg=$FG] $date_icon $date_format $RS"
 RS="#{prefix_highlight}$RS"
-
+tmux_set status-right-length 150
 tmux_set status-right "$RS"
 
 # Window status
-tmux_set window-status-format "#[fg=$FG,bg=$BG]$right_arrow_icon#I:#W#F "
-tmux_set window-status-current-format "#[fg=$FG]$right_arrow_icon#[fg=$FC,bold]#I:#W#F#[fg=$FG]$right_arrow_icon"
+tmux_set window-status-format "#[fg=$FG,bg=$BG] #I:#W#F "
+tmux_set window-status-current-format "#[fg=$FG] #[fg=$FC,bold]#I:#W#F "
 
 # Window separator  󰫣
-tmux_set window-status-separator ""
+tmux_set window-status-separator "$window_separator_icon"
 
 # Window status alignment
 tmux_set status-justify left
